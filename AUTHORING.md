@@ -38,7 +38,7 @@ Kurze Einleitung.
     step={2}
     title="Zweiter Schritt"
     image="/docs/landscape.png"
-    phone="/docs/iphone.png"
+    phoneImage="/docs/iphone.png"
   >
     Schritt mit zusätzlichem iPhone-Screenshot.
   </StepCard>
@@ -74,7 +74,7 @@ SVG als Komponente in `components/icons.tsx` ergänzen und in die `icons`-Map ei
 
 | Baustein | Beispiel |
 | --- | --- |
-| Schritt-Karte | `<StepCard step={1} title="…" image="/docs/x.png" phone="/docs/y.png">Text</StepCard>` |
+| Schritt-Karte | `<StepCard step={1} title="…" image="/docs/x.png" phoneImage="/docs/y.png">Text</StepCard>` |
 | Karten gruppieren | `<Steps> … mehrere StepCards … </Steps>` |
 | Link-Kacheln | `<Cards><Card title="…" href="/docs/…" description="…" /></Cards>` |
 | Hinweis-Box | `<Callout type="warn">Achtung …</Callout>` (auch `info`, `tip`) |
@@ -86,7 +86,7 @@ Dazu ganz normales Markdown: `##` Überschriften (landen automatisch im
 
 Screenshots nach [`public/docs/`](public/docs/) legen und als `/docs/dateiname.png`
 einbinden. Querformat für das große Bild (`image`), iPhone-Screenshots für den
-schmalen `phone`-Slot. Die vorhandenen `placeholder-*.png` sind die Platzhalter,
+schmalen `phoneImage`-Slot. Die vorhandenen `placeholder-*.png` sind die Platzhalter,
 die du ersetzen kannst.
 
 ## Marken-Farben & Schrift

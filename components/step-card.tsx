@@ -11,26 +11,26 @@ export interface StepCardProps {
   image: string;
   imageAlt?: string;
   /** Optional iPhone screenshot shown to the right of the landscape image. */
-  phone?: string;
-  phoneAlt?: string;
+  phoneImage?: string;
+  phoneImageAlt?: string;
   /** The copy / body text of the step. */
   children?: ReactNode;
 }
 
 /**
- * Step card — matches the Zetteln support-page design (Figma node 119:2589):
- * a 32px blue number badge + headline, a description line, then a full-width
- * image row (one landscape image, or a landscape + a narrower iPhone image
- * split ~397/185 with a 16px gap). Radii, spacing and colors follow the
- * zettelnToken brand tokens.
+ * Step card (Zetteln support-page design, Figma node 119:2589):
+ * a 32px blue number badge + headline, a description line, then an image row —
+ * one landscape image, or a landscape + a narrower iPhone image. Images use
+ * `object-contain` on a sand background so real screenshots of any ratio show
+ * in full without cropping. White card + soft shadow (website card style).
  */
 export function StepCard({
   step,
   title,
   image,
   imageAlt,
-  phone,
-  phoneAlt,
+  phoneImage,
+  phoneImageAlt,
   children,
 }: StepCardProps) {
   return (
@@ -60,35 +60,35 @@ export function StepCard({
       )}
 
       {/* Image row */}
-      {phone ? (
+      {phoneImage ? (
         <div className="grid grid-cols-[397fr_185fr] items-stretch gap-4">
-          <div className="relative aspect-[397/266] overflow-hidden rounded-3xl bg-zettelnBackground">
+          <div className="relative aspect-video overflow-hidden rounded-3xl bg-zettelnBackground">
             <Image
               src={image}
               alt={imageAlt ?? title}
               fill
               sizes="(max-width: 768px) 60vw, 400px"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
-          <div className="relative h-full overflow-hidden rounded-3xl bg-zettelnBackground">
+          <div className="relative h-full min-h-[220px] overflow-hidden rounded-3xl bg-zettelnBackground">
             <Image
-              src={phone}
-              alt={phoneAlt ?? `${title} – App`}
+              src={phoneImage}
+              alt={phoneImageAlt ?? `${title} – App`}
               fill
               sizes="(max-width: 768px) 30vw, 185px"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
         </div>
       ) : (
-        <div className="relative aspect-[598/266] w-full overflow-hidden rounded-3xl bg-zettelnBackground">
+        <div className="relative aspect-video w-full overflow-hidden rounded-3xl bg-zettelnBackground">
           <Image
             src={image}
             alt={imageAlt ?? title}
             fill
             sizes="(max-width: 768px) 100vw, 600px"
-            className="object-cover"
+            className="object-contain"
           />
         </div>
       )}
