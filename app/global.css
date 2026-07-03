@@ -27,6 +27,49 @@
   --font-zettelnBold: var(--font-zetteln), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Map Fumadocs' UI tokens onto the Zetteln brand so the whole shell
+   (sidebar, backgrounds, borders, active/hover states) matches the Figma
+   support-page design. Light theme mirrors the design 1:1; the design is
+   light-only so dark theme keeps Fumadocs' neutral defaults. */
+:root {
+  --color-fd-background: var(--zetteln-background); /* #efe8e2 */
+  --color-fd-foreground: var(--zetteln-dark-blue); /* #141724 */
+  --color-fd-muted: var(--zetteln-sand);
+  --color-fd-muted-foreground: var(--zetteln-gray); /* #a1a1a1 */
+  --color-fd-popover: var(--zetteln-sand);
+  --color-fd-popover-foreground: var(--zetteln-dark-blue);
+  --color-fd-card: var(--zetteln-sand);
+  --color-fd-card-foreground: var(--zetteln-dark-blue);
+  --color-fd-border: var(--zetteln-sand-dark); /* #c9bfa8 */
+  --color-fd-primary: var(--zetteln-red); /* #eb563f */
+  --color-fd-primary-foreground: var(--zetteln-sand);
+  --color-fd-secondary: var(--zetteln-sand);
+  --color-fd-secondary-foreground: var(--zetteln-dark-blue);
+  /* Sidebar active/hover pill = zettelnBlue @ 60%, exactly as in Figma */
+  --color-fd-accent: color-mix(in srgb, var(--zetteln-blue) 60%, transparent);
+  --color-fd-accent-foreground: var(--zetteln-dark-blue);
+  --color-fd-ring: var(--zetteln-blue);
+}
+
+/* Sidebar group headers as solid blue pills (Figma: "Starten", "Zugangscodes").
+   Fumadocs renders each collapsible group as a <button aria-expanded>. */
+#nd-sidebar button[aria-expanded] {
+  background: var(--zetteln-blue);
+  color: var(--zetteln-dark-blue);
+  border-radius: 0.5rem;
+}
+#nd-sidebar button[aria-expanded]:hover {
+  background: color-mix(in srgb, var(--zetteln-blue) 88%, black);
+  color: var(--zetteln-dark-blue);
+}
+
+/* Active page link = zettelnBlue @ 60% pill (Figma active state),
+   overriding Fumadocs' default primary-tinted highlight. */
+#nd-sidebar a[data-active='true'] {
+  background: color-mix(in srgb, var(--zetteln-blue) 60%, transparent);
+  color: var(--zetteln-dark-blue);
+}
+
 html {
   scrollbar-gutter: stable;
 }
