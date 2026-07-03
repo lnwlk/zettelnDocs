@@ -62,10 +62,13 @@ ergänzen (oder das `"..."` erledigt es automatisch).
 | ------------- | ------------------------------------------------- |
 | `title`       | Überschrift + Sidebar-Label (Pflicht)             |
 | `description` | Untertitel + Text für Suche/SEO                   |
-| `icon`        | Optional: Lucide-Icon-Name in der Sidebar         |
+| `icon`        | Sidebar-Icon: `book` (Seiten) oder `folder` (Gruppen) |
 | `full: true`  | Volle Breite (ohne „On this page“-Spalte rechts)  |
 
-Icon-Namen: siehe https://lucide.dev/icons (z. B. `Rocket`, `Sparkles`, `CircleHelp`).
+Icons sind die eigenen Zetteln-SVGs in [`components/icons.tsx`](components/icons.tsx),
+registriert in [`lib/source.ts`](lib/source.ts). Konvention: Seiten nutzen `icon: book`
+im Frontmatter, Gruppen `"icon": "folder"` in der `meta.json`. Neues Icon hinzufügen:
+SVG als Komponente in `components/icons.tsx` ergänzen und in die `icons`-Map eintragen.
 
 ## Bausteine für Seiten
 

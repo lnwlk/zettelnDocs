@@ -1,13 +1,20 @@
+import { createElement } from 'react';
 import { docs } from 'collections/server';
 import { loader } from 'fumadocs-core/source';
-import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
+import { icons } from '@/components/icons';
 import { docsContentRoute, docsImageRoute, docsRoute } from './shared';
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({
   baseUrl: docsRoute,
   source: docs.toFumadocsSource(),
-  plugins: [lucideIconsPlugin()],
+  // Resolve the `icon` field in meta.json (categories) and page frontmatter
+  // to our custom Zetteln sidebar icons.
+  icon(name) {
+    if (name && name in icons) {
+      return createElement(icons[name as keyof typeof icons]);
+    }
+  },
 });
 
 export function getPageImage(page: (typeof source)['$inferPage']) {
