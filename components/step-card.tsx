@@ -36,8 +36,8 @@ export function StepCard({
   return (
     <div
       className={cn(
-        'not-prose flex flex-col gap-4 rounded-[32px] border border-zettelnSandDark p-6',
-        'text-zettelnDarkBlue',
+        'not-prose flex flex-col gap-4 rounded-[32px] bg-white p-6 text-zettelnDarkBlue',
+        'shadow-[0_1px_2px_rgba(20,23,36,0.04),0_10px_28px_rgba(20,23,36,0.07)]',
       )}
     >
       {/* Header: badge + headline */}
@@ -62,7 +62,7 @@ export function StepCard({
       {/* Image row */}
       {phone ? (
         <div className="grid grid-cols-[397fr_185fr] items-stretch gap-4">
-          <div className="relative aspect-[397/266] overflow-hidden rounded-3xl bg-white">
+          <div className="relative aspect-[397/266] overflow-hidden rounded-3xl bg-zettelnBackground">
             <Image
               src={image}
               alt={imageAlt ?? title}
@@ -71,7 +71,7 @@ export function StepCard({
               className="object-cover"
             />
           </div>
-          <div className="relative h-full overflow-hidden rounded-3xl bg-white">
+          <div className="relative h-full overflow-hidden rounded-3xl bg-zettelnBackground">
             <Image
               src={phone}
               alt={phoneAlt ?? `${title} – App`}
@@ -82,7 +82,7 @@ export function StepCard({
           </div>
         </div>
       ) : (
-        <div className="relative aspect-[598/266] w-full overflow-hidden rounded-3xl bg-white">
+        <div className="relative aspect-[598/266] w-full overflow-hidden rounded-3xl bg-zettelnBackground">
           <Image
             src={image}
             alt={imageAlt ?? title}

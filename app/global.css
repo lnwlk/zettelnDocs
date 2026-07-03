@@ -45,29 +45,39 @@
   --color-fd-primary-foreground: var(--zetteln-sand);
   --color-fd-secondary: var(--zetteln-sand);
   --color-fd-secondary-foreground: var(--zetteln-dark-blue);
-  /* Sidebar active/hover pill = zettelnBlue @ 60%, exactly as in Figma */
-  --color-fd-accent: color-mix(in srgb, var(--zetteln-blue) 60%, transparent);
+  /* Light-blue hover for nav items, like the Zetteln website nav */
+  --color-fd-accent: var(--zetteln-nav-active);
   --color-fd-accent-foreground: var(--zetteln-dark-blue);
   --color-fd-ring: var(--zetteln-blue);
+
+  /* Shared light-blue used for the active category + nav hover */
+  --zetteln-nav-active: color-mix(in srgb, var(--zetteln-blue) 35%, transparent);
 }
 
-/* Sidebar group headers as solid blue pills (Figma: "Starten", "Zugangscodes").
-   Fumadocs renders each collapsible group as a <button aria-expanded>. */
+/* --- Sidebar active states ---------------------------------------------- */
+
+/* Category (folder) headers: plain by default, dark & legible. */
 #nd-sidebar button[aria-expanded] {
-  background: var(--zetteln-blue);
   color: var(--zetteln-dark-blue);
   border-radius: 0.5rem;
 }
-#nd-sidebar button[aria-expanded]:hover {
-  background: color-mix(in srgb, var(--zetteln-blue) 88%, black);
-  color: var(--zetteln-dark-blue);
+
+/* Active category = the folder that contains the current page → light-blue
+   background (matches the website nav hover). */
+#nd-sidebar div:has(a[data-active='true']) > button[aria-expanded] {
+  background: var(--zetteln-nav-active);
 }
 
-/* Active page link = zettelnBlue @ 60% pill (Figma active state),
-   overriding Fumadocs' default primary-tinted highlight. */
+/* Active page = bold, blue text, no background (override Fumadocs default). */
 #nd-sidebar a[data-active='true'] {
-  background: color-mix(in srgb, var(--zetteln-blue) 60%, transparent);
-  color: var(--zetteln-dark-blue);
+  background: transparent;
+  color: var(--zetteln-info-blue);
+  font-weight: 700;
+}
+
+/* Prev/next footer: keep the page links, drop the description copy. */
+#nd-page a p.truncate {
+  display: none;
 }
 
 html {

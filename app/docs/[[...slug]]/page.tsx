@@ -1,7 +1,6 @@
 import { getPageImage, source } from '@/lib/source';
 import {
   DocsBody,
-  DocsDescription,
   DocsPage,
   DocsTitle,
 } from 'fumadocs-ui/layouts/docs/page';
@@ -19,12 +18,9 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle className="font-zettelnBold text-[40px] leading-10 tracking-[-0.3px] text-zettelnDarkBlue">
+      <DocsTitle className="mb-8 font-zettelnBold text-[40px] leading-10 tracking-[-0.3px] text-zettelnDarkBlue">
         {page.data.title}
       </DocsTitle>
-      <DocsDescription className="mt-2 mb-8 text-sm text-zettelnGray">
-        {page.data.description}
-      </DocsDescription>
       <DocsBody>
         <MDX
           components={getMDXComponents({
