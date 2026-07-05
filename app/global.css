@@ -41,7 +41,9 @@
   --color-fd-card: var(--zetteln-sand);
   --color-fd-card-foreground: var(--zetteln-dark-blue);
   --color-fd-border: var(--zetteln-sand-dark); /* #c9bfa8 */
-  --color-fd-primary: var(--zetteln-red); /* #eb563f */
+  /* Blue accent for active UI (breadcrumb, sidebar active indicator, TOC) —
+     matches the active nav-item text below and the website's blue nav. */
+  --color-fd-primary: var(--zetteln-info-blue);
   --color-fd-primary-foreground: var(--zetteln-sand);
   --color-fd-secondary: var(--zetteln-sand);
   --color-fd-secondary-foreground: var(--zetteln-dark-blue);
@@ -51,7 +53,11 @@
   --color-fd-ring: var(--zetteln-blue);
 
   /* Shared light-blue used for the active category + nav hover */
-  --zetteln-nav-active: color-mix(in srgb, var(--zetteln-blue) 35%, transparent);
+  --zetteln-nav-active: color-mix(
+    in srgb,
+    var(--zetteln-blue) 35%,
+    transparent
+  );
 }
 
 /* --- Sidebar active states ---------------------------------------------- */

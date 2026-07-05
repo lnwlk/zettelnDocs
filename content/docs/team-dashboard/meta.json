@@ -1,0 +1,14 @@
+{
+  "title": "Team Dashboard",
+  "icon": "folder",
+  "pages": [
+    "login",
+    "team-profil",
+    "add-team-member",
+    "edit-member-profile",
+    "codes-distribution",
+    "give-client-access",
+    "bulk-client-access",
+    "..."
+  ]
+}

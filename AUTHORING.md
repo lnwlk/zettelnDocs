@@ -58,12 +58,12 @@ ergänzen (oder das `"..."` erledigt es automatisch).
 
 ## Frontmatter (der Block zwischen den `---`)
 
-| Feld          | Zweck                                             |
-| ------------- | ------------------------------------------------- |
-| `title`       | Überschrift + Sidebar-Label (Pflicht)             |
-| `description` | Untertitel + Text für Suche/SEO                   |
+| Feld          | Zweck                                                 |
+| ------------- | ----------------------------------------------------- |
+| `title`       | Überschrift + Sidebar-Label (Pflicht)                 |
+| `description` | Untertitel + Text für Suche/SEO                       |
 | `icon`        | Sidebar-Icon: `book` (Seiten) oder `folder` (Gruppen) |
-| `full: true`  | Volle Breite (ohne „On this page“-Spalte rechts)  |
+| `full: true`  | Volle Breite (ohne „On this page“-Spalte rechts)      |
 
 Icons sind die eigenen Zetteln-SVGs in [`components/icons.tsx`](components/icons.tsx),
 registriert in [`lib/source.ts`](lib/source.ts). Konvention: Seiten nutzen `icon: book`
@@ -72,12 +72,12 @@ SVG als Komponente in `components/icons.tsx` ergänzen und in die `icons`-Map ei
 
 ## Bausteine für Seiten
 
-| Baustein | Beispiel |
-| --- | --- |
-| Schritt-Karte | `<StepCard step={1} title="…" image="/docs/x.png" phoneImage="/docs/y.png">Text</StepCard>` |
-| Karten gruppieren | `<Steps> … mehrere StepCards … </Steps>` |
-| Link-Kacheln | `<Cards><Card title="…" href="/docs/…" description="…" /></Cards>` |
-| Hinweis-Box | `<Callout type="warn">Achtung …</Callout>` (auch `info`, `tip`) |
+| Baustein          | Beispiel                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------- |
+| Schritt-Karte     | `<StepCard step={1} title="…" image="/docs/x.png" phoneImage="/docs/y.png">Text</StepCard>` |
+| Karten gruppieren | `<Steps> … mehrere StepCards … </Steps>`                                                    |
+| Link-Kacheln      | `<Cards><Card title="…" href="/docs/…" description="…" /></Cards>`                          |
+| Hinweis-Box       | `<Callout type="warn">Achtung …</Callout>` (auch `info`, `tip`)                             |
 
 Dazu ganz normales Markdown: `##` Überschriften (landen automatisch im
 „On this page“-Menü), Listen, Tabellen, **fett**, `Code`.

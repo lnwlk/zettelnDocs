@@ -1,0 +1,15 @@
+# dependencies & generated
+node_modules
+.source
+.next
+out
+build
+coverage
+
+# lockfiles & assets
+package-lock.json
+public
+
+# fumadocs / next generated types
+next-env.d.ts
+*.tsbuildinfo

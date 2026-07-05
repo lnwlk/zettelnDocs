@@ -55,10 +55,10 @@ weitere Konfiguration nötig.
 
 ## Struktur
 
-| Pfad                      | Zweck                                             |
-| ------------------------- | ------------------------------------------------- |
-| `content/docs`            | Doku-Seiten (MDX) + `meta.json`-Navigation        |
-| `components/step-card.tsx`| `StepCard` / `Steps` Layout-Komponenten           |
-| `app/global.css`          | Tailwind + Zetteln-Marken-Tokens                  |
-| `lib/source.ts`           | Content-Source-Adapter für Fumadocs               |
-| `lib/shared.ts`           | App-Name, GitHub-Info, Routen                     |
+| Pfad                       | Zweck                                      |
+| -------------------------- | ------------------------------------------ |
+| `content/docs`             | Doku-Seiten (MDX) + `meta.json`-Navigation |
+| `components/step-card.tsx` | `StepCard` / `Steps` Layout-Komponenten    |
+| `app/global.css`           | Tailwind + Zetteln-Marken-Tokens           |
+| `lib/source.ts`            | Content-Source-Adapter für Fumadocs        |
+| `lib/shared.ts`            | App-Name, GitHub-Info, Routen              |

@@ -24,7 +24,7 @@ const zetteln = localFont({
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="de" className={zetteln.variable} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen font-sans">
+      <body className="flex min-h-screen flex-col font-sans">
         {/* Light-only design: disable theme switching entirely. */}
         <RootProvider theme={{ enabled: false }}>{children}</RootProvider>
       </body>
