@@ -32,13 +32,16 @@
    support-page design. Light theme mirrors the design 1:1; the design is
    light-only so dark theme keeps Fumadocs' neutral defaults. */
 :root {
-  --color-fd-background: var(--zetteln-background); /* #efe8e2 */
+  --color-fd-background: var(
+    --zetteln-background
+  ); /* sand #f1efec — same page bg as the dashboards */
   --color-fd-foreground: var(--zetteln-dark-blue); /* #141724 */
   --color-fd-muted: var(--zetteln-sand);
   --color-fd-muted-foreground: var(--zetteln-gray); /* #a1a1a1 */
   --color-fd-popover: var(--zetteln-sand);
   --color-fd-popover-foreground: var(--zetteln-dark-blue);
-  --color-fd-card: var(--zetteln-sand);
+  /* White (surface) — the sidebar (bg-fd-card) and cards, like the dashboards. */
+  --color-fd-card: var(--zetteln-surface);
   --color-fd-card-foreground: var(--zetteln-dark-blue);
   --color-fd-border: var(--zetteln-sand-dark); /* #c9bfa8 */
   /* Blue accent for active UI (breadcrumb, sidebar active indicator, TOC) —
@@ -47,38 +50,31 @@
   --color-fd-primary-foreground: var(--zetteln-sand);
   --color-fd-secondary: var(--zetteln-sand);
   --color-fd-secondary-foreground: var(--zetteln-dark-blue);
-  /* Light-blue hover for nav items, like the Zetteln website nav */
-  --color-fd-accent: var(--zetteln-nav-active);
+  /* Sand hover for nav items, matching the dashboards' `hover:bg-accent`. */
+  --color-fd-accent: var(--zetteln-sand);
   --color-fd-accent-foreground: var(--zetteln-dark-blue);
   --color-fd-ring: var(--zetteln-blue);
-
-  /* Shared light-blue used for the active category + nav hover */
-  --zetteln-nav-active: color-mix(
-    in srgb,
-    var(--zetteln-blue) 35%,
-    transparent
-  );
 }
 
-/* --- Sidebar active states ---------------------------------------------- */
+/* --- Sidebar: unified with the Team/Admin Dashboards -------------------- */
+/* White panel (bg-fd-card = surface) over the sand page, with a sand-dark
+   active item — mirroring the dashboards' `bg-zettelnSandDark` nav style. */
 
-/* Category (folder) headers: plain by default, dark & legible. */
+/* Category (folder) headers: plain, dark & legible. */
 #nd-sidebar button[aria-expanded] {
   color: var(--zetteln-dark-blue);
   border-radius: 0.5rem;
 }
 
-/* Active category = the folder that contains the current page → light-blue
-   background (matches the website nav hover). */
-#nd-sidebar div:has(a[data-active='true']) > button[aria-expanded] {
-  background: var(--zetteln-nav-active);
-}
-
-/* Active page = bold, blue text, no background (override Fumadocs default). */
+/* Active page = sand-dark background + dark text, no blue and no indicator
+   bar (matches the dashboards' `bg-zettelnSandDark text-foreground`). */
 #nd-sidebar a[data-active='true'] {
-  background: transparent;
-  color: var(--zetteln-info-blue);
-  font-weight: 700;
+  background: var(--zetteln-sand-dark);
+  color: var(--zetteln-dark-blue);
+  font-weight: 500;
+}
+#nd-sidebar a[data-active='true']::before {
+  display: none;
 }
 
 /* Prev/next footer: keep the page links, drop the description copy. */
