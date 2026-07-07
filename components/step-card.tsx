@@ -2,6 +2,7 @@ import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
+import { slugify } from '@/lib/slug';
 
 /**
  * Put on a `relative`, sized image container to make `ZoomImage` fill it.
@@ -93,7 +94,10 @@ export function StepCard({
             {step}
           </span>
         )}
-        <h3 className="m-0 font-zettelnBold text-xl leading-6 text-zettelnDarkBlue">
+        <h3
+          id={slugify(title)}
+          className="m-0 scroll-mt-24 font-zettelnBold text-xl leading-6 text-zettelnDarkBlue"
+        >
           {title}
         </h3>
       </div>

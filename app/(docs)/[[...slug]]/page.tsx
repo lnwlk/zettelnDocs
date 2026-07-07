@@ -2,6 +2,7 @@ import { getPageImage, source } from '@/lib/source';
 import { DocsBody, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
+import { Toc } from '@/components/toc';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 
@@ -13,7 +14,11 @@ export default async function Page(props: PageProps<'/[[...slug]]'>) {
   const MDX = page.data.body;
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage
+      toc={page.data.toc}
+      full={page.data.full}
+      tableOfContent={{ component: <Toc /> }}
+    >
       <DocsTitle className="mb-8 font-zettelnBold text-[40px] leading-10 tracking-[-0.3px] text-zettelnDarkBlue">
         {page.data.title}
       </DocsTitle>

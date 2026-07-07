@@ -1,5 +1,6 @@
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
+import { Feedback } from '@/components/feedback';
 import { StepCard, Steps } from '@/components/step-card';
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -7,6 +8,7 @@ export function getMDXComponents(components?: MDXComponents) {
     ...defaultMdxComponents,
     StepCard,
     Steps,
+    Feedback,
     ...components,
   } satisfies MDXComponents;
 }
