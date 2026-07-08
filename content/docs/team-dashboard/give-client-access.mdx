@@ -22,6 +22,10 @@ icon: book
 >
   Klicke auf **Zugang vergeben**, um einen QR-Code für eine:n Klient:in zu
   erstellen.
+
+  <RoleBadge role="member">
+    Teammitglieder können nur für sich QR-Codes erstellen
+  </RoleBadge>
 </StepCard>
 
   <StepCard
@@ -50,6 +54,33 @@ icon: book
       Zetteln-App muss dafür bereits installiert sein.
     - Du **druckst** den QR-Code aus und verteilst ihn.
     - Du teilst per **E-Mail** einen Aktivierungs-Link.
+
+  </StepCard>
+
+  <StepCard
+    step={5}
+    title="App-Zugang aktivieren"
+    qrImages={[
+      {
+        src: '/docs/team-dashboard/QR-Code-Apple.jpg',
+        alt: 'QR-Code zum Download der Zetteln-App im Apple App Store',
+      },
+      {
+        src: '/docs/team-dashboard/QR-Code-GooglePlay.jpg',
+        alt: 'QR-Code zum Download der Zetteln-App bei Google Play',
+      },
+    ]}
+  >
+    So aktiviert dein:e Klient:in den Zugang:
+
+    1. **Zuerst die App installieren.** Die zetteln-App über einen der beiden
+       QR-Codes herunterladen.
+    2. **Danach den Zugangs-Code scannen.** Erst wenn die App installiert ist,
+       scannt dein:e Klient:in den Zugangs-Code aus Schritt 4, um den Zugang zu
+       aktivieren.
+
+    ❗ Der Zugangs-Code lässt sich nur mit installierter App öffnen. Wird er ohne
+    App gescannt, passiert nichts.
 
   </StepCard>
 </Steps>

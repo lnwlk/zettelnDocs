@@ -13,6 +13,15 @@ icon: book
   >
     Nutze diese Funktion, um schnell viele QR-Codes auf einmal zu erstellen.
     Klicke dafür im Dashboard auf **QR Codes drucken**.
+
+    <RoleBadge role="member">
+      Teammitglieder können nur für sich QR-Codes erstellen
+    </RoleBadge>
+
+    <RoleBadge role="admin">
+      Admin können für alle Teammitglieder oder auf Team-Ebene QR-Codes erstellen
+    </RoleBadge>
+
   </StepCard>
 
   <StepCard
@@ -62,11 +71,38 @@ icon: book
 
   <StepCard
     step={6}
-    title="Namen nachträglich hinzufügen"
-    image="/docs/team-dashboard/shareBulkCodes_07.png"
-    imageAlt="Nachträgliches Hinzufügen eines Namens zum Zugangscode im Team Dashboard"
+    title="App-Zugang aktivieren"
+    qrImages={[
+      {
+        src: '/docs/team-dashboard/QR-Code-Apple.jpg',
+        alt: 'QR-Code zum Download der Zetteln-App im Apple App Store',
+      },
+      {
+        src: '/docs/team-dashboard/QR-Code-GooglePlay.jpg',
+        alt: 'QR-Code zum Download der Zetteln-App bei Google Play',
+      },
+    ]}
   >
-    Gleiche den Zugangscode im Dashboard mit dem gedruckten QR-Code ab und füge
-    anschließend deine Notiz bzw. den Namen hinzu.
+    So aktiviert dein:e Klient:in den Zugang:
+
+    1. **Zuerst die App installieren.** Die zetteln-App über einen der beiden
+       QR-Codes herunterladen.
+    2. **Danach den Zugangs-Code scannen.** Erst wenn die App installiert ist,
+       scannt dein:e Klient:in den gedruckten Zugangs-Code, um den Zugang zu
+       aktivieren.
+
+    ❗ Der Zugangs-Code lässt sich nur mit installierter App öffnen. Wird er ohne
+    App gescannt, passiert nichts.
+
   </StepCard>
+
+  <StepCard
+  step={7}
+  title="Namen nachträglich hinzufügen"
+  image="/docs/team-dashboard/shareBulkCodes_07.png"
+  imageAlt="Nachträgliches Hinzufügen eines Namens zum Zugangscode im Team Dashboard"
+>
+  Gleiche den Zugangscode im Dashboard mit dem gedruckten QR-Code ab und füge
+  anschließend deine Notiz bzw. den Namen hinzu.
+</StepCard>
 </Steps>

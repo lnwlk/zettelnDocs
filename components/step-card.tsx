@@ -54,12 +54,21 @@ export interface StepCardProps {
   step?: number;
   /** Headline of the step. */
   title: string;
-  /** Landscape image (screenshot / illustration). Path in /public or a remote URL. */
-  image: string;
+  /**
+   * Landscape image (screenshot / illustration). Path in /public or a remote
+   * URL. Optional when {@link qrImages} is used instead.
+   */
+  image?: string;
   imageAlt?: string;
   /** Optional iPhone screenshot shown to the right of the landscape image. */
   phoneImage?: string;
   phoneImageAlt?: string;
+  /**
+   * Optional row of square images (e.g. download QR codes) shown side by side
+   * instead of the landscape/phone layout. Each image is contained on a sand
+   * tile and opens full-screen on click.
+   */
+  qrImages?: { src: string; alt: string }[];
   /** The copy / body text of the step. */
   children?: ReactNode;
 }
@@ -78,6 +87,7 @@ export function StepCard({
   imageAlt,
   phoneImage,
   phoneImageAlt,
+  qrImages,
   children,
 }: StepCardProps) {
   return (
@@ -102,11 +112,14 @@ export function StepCard({
         </h3>
       </div>
 
-      {/* Description — supports multiple paragraphs and bulleted lists.
-          `flex flex-col gap-2` gives the vertical rhythm between blocks (the
-          card is `not-prose`, so there are no default block margins/markers). */}
+      {/* Description — supports multiple paragraphs and bulleted lists. The card
+          is `not-prose`, so spacing is set explicitly via top margins (not a flat
+          flex `gap`) to build a visual hierarchy: a large gap *before* a group
+          heading, a tight gap *after* it, so heading + copy read as one group. A
+          "group heading" is a paragraph whose only child is bold text
+          (`**Überblick**`). */}
       {children && (
-        <div className="flex flex-col gap-2 text-base leading-[22px] text-zettelnDarkBlue [&_a]:text-zettelnInfoBlue [&_a]:underline [&_li]:mt-1 [&_li:first-child]:mt-0 [&_p]:m-0 [&_strong]:font-zettelnBold [&_ul]:m-0 [&_ul]:list-disc [&_ul]:ps-5">
+        <div className="flex flex-col text-base leading-[22px] text-zettelnDarkBlue [&_a]:text-zettelnInfoBlue [&_a]:underline [&_li:first-child]:mt-0 [&_li]:mt-1 [&_ol]:mb-0 [&_ol]:mt-2 [&_ol]:list-decimal [&_ol]:ps-5 [&>p]:mb-0 [&>p]:mt-2 [&_strong]:font-zettelnBold [&_ul]:mb-0 [&_ul]:mt-2 [&_ul]:list-disc [&_ul]:ps-5 [&>*:first-child]:mt-0 [&>p:has(>strong:only-child)]:mt-5 [&>p:has(>strong:only-child)+*]:mt-1 [&>p:has(>strong:only-child):first-child]:mt-0 [&_[data-role-badge]]:mt-6 [&_[data-role-badge]+[data-role-badge]]:mt-2 [&_[data-role-badge]:first-child]:mt-0 [&_[data-role-badge]:last-child]:mb-3">
           {children}
         </div>
       )}
@@ -118,7 +131,25 @@ export function StepCard({
         widths, at any container width. Landscape grows to match the tall phone;
         both keep their aspect ratios.
       */}
-      {phoneImage ? (
+      {qrImages ? (
+        <div className="mx-auto grid w-full max-w-md grid-cols-2 gap-4">
+          {qrImages.map((qr) => (
+            <div
+              key={qr.src}
+              className={cn(
+                'relative aspect-square overflow-hidden rounded-3xl bg-zettelnBackground',
+                ZOOM_FILL,
+              )}
+            >
+              <ZoomImage
+                src={qr.src}
+                alt={qr.alt}
+                sizes="(max-width: 768px) 45vw, 220px"
+              />
+            </div>
+          ))}
+        </div>
+      ) : phoneImage && image ? (
         <div className="grid grid-cols-[3.854fr_1fr] items-start gap-4">
           <div
             className={cn(
@@ -147,7 +178,7 @@ export function StepCard({
             />
           </div>
         </div>
-      ) : (
+      ) : image ? (
         <div
           className={cn(
             'relative aspect-video w-full overflow-hidden rounded-3xl bg-zettelnBackground',
@@ -160,7 +191,7 @@ export function StepCard({
             sizes="(max-width: 768px) 100vw, 600px"
           />
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

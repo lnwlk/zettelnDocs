@@ -1,0 +1,72 @@
+---
+title: Statistik
+description: Werte die Scan-Statistik eurer Organisation aus und behalte die Nutzung im Blick.
+icon: book
+---
+
+Auf der Seite **Statistik** siehst du auf einen Blick, wie eure Zugangs-Codes genutzt
+werden – von der Gesamtzahl der Scans bis zu den häufigsten Dokumenttypen.
+
+<Steps>
+  <StepCard
+    step={1}
+    title="Was du siehst"
+    image="/docs/team-dashboard/statistik_01.png"
+    imageAlt="Die Statistik-Seite im Team Dashboard mit Kennzahlen, Verteilung nach Aktion und Diagrammen"
+  >
+    <RoleBadge role="member">
+      Teammitglieder sehen nur ihre eigene Statistik
+    </RoleBadge>
+
+    <RoleBadge role="admin">Admin können die Team-Statistik sehen</RoleBadge>
+
+    **Überblick**
+
+    Die drei Kacheln oben fassen die wichtigsten Zahlen zusammen:
+
+    - **Scans gesamt**: Alle Scans, die mit euren Zugangs-Codes getätigt wurden.
+    - **Dokument-Typ in DB vorhanden**: Der Anteil der Scans, deren Dokument-Typ in der
+      Datenbank bereits erfasst ist. Ist der Wert niedrig, lohnt es sich, die
+      Dokumente eurer Klient:innen genauer anzuschauen. Wir ergänzen die Datenbank
+      dann gemeinsam.
+    - **Dokumenten-Feedback gegeben**: Bei wie vielen Scans ihr Feedback gegeben habt.
+      Ein niedriger Wert ist ein Hinweis, die Scans eurer Klient:innen regelmäßiger zu
+      prüfen.
+
+    **Verteilung nach Aktion**
+
+    Zeigt, welcher Anteil der Dokumente auf die einzelnen Aktionstypen entfällt.
+
+    **Scans nach Teammitglied**
+
+    Die Anzahl der Scans, aufgeschlüsselt nach betreuendem Teammitglied.
+
+    **Häufigste Dokumenttypen**
+
+    Welche Dokument-Typen bei euch besonders oft gescannt werden.
+
+  </StepCard>
+
+<StepCard
+  step={2}
+  title="Nach Teammitglied filtern"
+  image="/docs/team-dashboard/statistik_02.png"
+  imageAlt="Auswahl eines einzelnen Teammitglieds über das Dropdown „Teammitglied“"
+>
+  Als **Admin** kannst du die Statistik für ein einzelnes Teammitglied anzeigen.
+  Wähle dafür oben rechts im Dropdown **Teammitglied** die gewünschte Person
+  aus.
+
+  <RoleBadge role="admin">Nur Admin können Teammitglieder auswählen</RoleBadge>
+</StepCard>
+
+  <StepCard
+    step={3}
+    title="Nach Zeitraum filtern"
+    image="/docs/team-dashboard/statistik_03.png"
+    imageAlt="Auswahl eines Zeitraums über das Dropdown „Monat“"
+  >
+    Über das Dropdown **Monat** grenzt du die Statistik auf einen bestimmten Zeitraum
+    ein.
+  </StepCard>
+</Steps>
